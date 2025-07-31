@@ -1,0 +1,1 @@
+### Kernel API browser sessions on a chrome extension popup
