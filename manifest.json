@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Kernel Sessions",
+  "version": "1.0.0",
+  "description": "Create and manage Kernel browser sessions",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "512": "icon-512.png"
+    }
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.onkernel.com/*"
+  ],
+  "icons": {
+    "512": "icon-512.png"
+  }
+}

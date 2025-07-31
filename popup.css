@@ -1,0 +1,22 @@
+/* Local embedded font */
+@font-face {
+  font-family: 'ExtFont';
+  src: url('ext-font.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply font globally */
+* {
+  font-family: 'ExtFont', monospace;
+}
+
+/* Force the popup to the max size Chrome allows */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 800px;
+  height: 600px;
+  overflow: hidden;
+}

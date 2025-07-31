@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Kernel Sessions</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="popup.css" rel="stylesheet">
+</head>
+
+<body class="flex flex-col h-full">
+
+  <!-- Tabs -->
+  <div class="flex border-b">
+    <button id="session-tab-btn"
+      class="flex-1 py-2 text-center font-medium text-purple-600 border-b-2 border-purple-600">
+      Session
+    </button>
+    <button id="settings-tab-btn" class="flex-1 py-2 text-center font-medium text-gray-500">
+      Settings
+    </button>
+  </div>
+
+  <!-- SESSION TAB -->
+  <div id="session-tab" class="flex-1 flex flex-col p-2 overflow-auto">
+
+    <div id="no-key-warning" class="text-red-500 mb-2 hidden">
+      API key not set. Please
+      <button id="goto-settings" class="underline text-purple-600">set it in Settings</button>.
+    </div>
+
+    <!-- always-on top row: toggle + fullscreen -->
+    <div id="toggle-controls-container" class="flex justify-end space-x-4 mb-2">
+      <button id="toggle-controls" class="text-gray-500 underline text-sm">
+        Hide Controls
+      </button>
+    </div>
+
+    <!-- the actual controls (to be hidden/shown) -->
+    <div id="controls" class="space-y-2 mb-2">
+      <div class="flex space-x-2">
+        <div class="flex flex-col flex-1">
+          <label for="width" class="text-xs text-gray-600">Width</label>
+          <input id="width" type="number" class="border p-1" />
+        </div>
+        <div class="flex flex-col flex-1">
+          <label for="height" class="text-xs text-gray-600">Height</label>
+          <input id="height" type="number" class="border p-1" />
+        </div>
+        <button id="save-dims" class="bg-purple-600 text-white px-2 mt-6 rounded">
+          Save
+        </button>
+      </div>
+      <div class="flex space-x-2">
+        <button id="new-session" class="bg-purple-600 text-white flex-1 py-2 rounded">
+          New Session
+        </button>
+      </div>
+      <!-- resume picker: only shown if we have <1h‐old sessions -->
+      <div id="resume-container" class="flex space-x-2 items-center">
+        <select id="session-list" class="flex-1 border p-1 text-sm"></select>
+        <button id="resume-session" class="bg-gray-300 text-black px-2 py-1 rounded disabled:opacity-50" disabled>
+          Resume
+        </button>
+      </div>
+
+      <div id="toggle-controls-container" class="flex justify-end space-x-4 mb-2">
+        <button id="fullscreen" class="text-gray-500 underline text-sm">
+          Open In Tab →
+        </button>
+      </div>
+    </div>
+
+    <!-- iframe hidden until we actually load a session -->
+    <div id="iframe-container" class="flex-1 hidden"></div>
+  </div>
+
+  <!-- SETTINGS TAB -->
+  <div id="settings-tab" class="hidden flex flex-col p-4">
+    <label for="api-key" class="text-xs text-gray-600 mb-1">KERNEL_API_KEY</label>
+    <input id="api-key" type="text" class="border p-2 mb-2" placeholder="Enter your API key" />
+    <button id="save-key" class="bg-purple-600 text-white px-4 py-2 rounded">
+      Save API Key
+    </button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
